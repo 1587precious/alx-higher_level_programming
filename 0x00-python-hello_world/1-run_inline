@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $YOUR_PY_CODE | python3
