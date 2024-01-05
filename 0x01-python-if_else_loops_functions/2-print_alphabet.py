@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print('"Programming is like building a multilingual puzzle')
+for c in range(ord('a'), ord('z') + 1):
+    print("{:c}".format(c), end="")
