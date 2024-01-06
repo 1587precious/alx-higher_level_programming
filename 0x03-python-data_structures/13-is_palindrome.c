@@ -1,18 +1,18 @@
 #include "lists.h"
 
 /**
- * is_palindrome - Check if a linked list is a palindrome
+ * is_palindrome - Check if is palindrome
  *
- * @head: Head of the linked list
+ * @head: Head of Linked List
  *
- * Return: 1 if it is a palindrome, 0 otherwise
+ * Return: 0 if not palindrome, 1 if is palindrome
  */
 
 int is_palindrome(listint_t **head)
 {
+
 	if (!*head || !(*head))
 	{
-		/* An empty list or a single-node list is a palindrome */
 		return (1);
 	}
 
@@ -20,18 +20,19 @@ int is_palindrome(listint_t **head)
 	{
 		return (1);
 	}
-
 	return (0);
 }
 
 /**
- * p_check - Helper function to check for palindrome recursively
+ *  p_check - Check for palindrome
  *
- * @left: Pointer to the left side of the list
- * @right: Pointer to the right side of the list
+ *  @left: Go left
  *
- * Return: 1 if it is a palindrome, 0 otherwise
+ *  @right: Go right
+ *
+ *  Return: Integer
  */
+
 
 int p_check(listint_t **left, listint_t *right)
 {
@@ -43,7 +44,6 @@ int p_check(listint_t **left, listint_t *right)
 	}
 	else
 	{
-		/* Reached the end of the list, indicating a palindrome */
 		return (1);
 	}
 
@@ -51,12 +51,9 @@ int p_check(listint_t **left, listint_t *right)
 	{
 		if ((*left)->n == right->n)
 		{
-			/* Move the left pointer to the next node */
 			(*left) = (*left)->next;
 			return (1);
 		}
 	}
-
-	/* Not a palindrome */
 	return (0);
 }
