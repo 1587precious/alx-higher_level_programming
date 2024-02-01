@@ -12,12 +12,4 @@ print("--")
 my_rectangle.width = 10
 my_rectangle.height = 3
 print(my_rectangle)
-print(repr(my_rectangle))
-
-guillaume@ubuntu:~/0x08$ ./3-main.py
-Area: 8 - Perimeter: 12
-##
-##
-##
-##
- 
+print(repr(my_rectangle)) 
