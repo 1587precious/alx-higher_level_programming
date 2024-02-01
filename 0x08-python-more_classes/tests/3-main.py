@@ -20,10 +20,4 @@ Area: 8 - Perimeter: 12
 ##
 ##
 ##
-<3-rectangle.Rectangle object at 0x7f92a75a2eb8>
---
-##########
-##########
-##########
-<3-rectangle.Rectangle object at 0x7f92a75a2eb8>
-guillaume@ubuntu:~/0x08$ 
+ 

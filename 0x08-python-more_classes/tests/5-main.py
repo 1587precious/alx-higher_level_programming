@@ -9,10 +9,4 @@ del my_rectangle
 try:
     print(my_rectangle)
 except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
-
-guillaume@ubuntu:~/0x08$ ./5-main.py
-Area: 8 - Perimeter: 12
-Bye rectangle...
-[NameError] name 'my_rectangle' is not defined
-guillaume@ubuntu:~/0x08$ 
+    print("[{}] {}".format(e.__class__.__name__, e)) 

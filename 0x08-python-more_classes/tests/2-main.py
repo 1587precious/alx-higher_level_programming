@@ -6,12 +6,3 @@ print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perime
 
 print("--")
 
-my_rectangle.width = 10
-my_rectangle.height = 3
-print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
-
-guillaume@ubuntu:~/0x08$ ./2-main.py
-Area: 8 - Perimeter: 12
---
-Area: 30 - Perimeter: 26
-guillaume@ubuntu:~/0x08$ 
