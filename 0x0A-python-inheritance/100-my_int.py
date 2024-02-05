@@ -1,21 +1,19 @@
 #!/usr/bin/python3
-"""Module that defines a rebel MyInt class"""
+"""
+Contains the class MyInt
+"""
+
 
 class MyInt(int):
-    """Rebel MyInt class that inverts == and != operators"""
+    """rebel version of an integer, perfect for opposite day!"""
+    def __new__(cls, *args, **kw):
+        """create a new instance of the class"""
+        return super(MyInt, cls).__new__(cls, *args, **kw)
 
     def __eq__(self, other):
-        """Override the equality operator =="""
-        return super().__ne__(other)
+        """what was != is now =="""
+        return int(self) != other
 
     def __ne__(self, other):
-        """Override the inequality operator !="""
-        return super().__eq__(other)
-
-if __name__ == "__main__":
-    my_i = MyInt(3)
-
-    print(my_i)
-    print(my_i == 3)
-    print(my_i != 3)
-
+        """what was == is now !="""
+        return int(self) == other
