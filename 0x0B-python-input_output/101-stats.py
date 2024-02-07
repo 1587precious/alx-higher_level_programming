@@ -80,4 +80,5 @@ if __name__ == "__main__":
                 print("File size: {:d}".format(total))
                 print_dict_sorted_nonzero(status_codes)
     finally:
-        print("File size: {:d}".format(total))        print_dict_sorted_nonzero(status_codes)
+        print("File size: {:d}".format(total))
+        print_dict_sorted_nonzero(status_codes)
