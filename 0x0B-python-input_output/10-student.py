@@ -9,5 +9,4 @@ def class_to_json(obj):
         obj: object to serialize
 
     Returns: copy of `obj`s attributes as dictionary
-    """
-    return obj.__dict__.copy()
+    """    return obj.__dict__.copy()
