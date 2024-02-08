@@ -1,20 +1,21 @@
 #!/usr/bin/python3
-"""Module containing function that modifies file"""
+class Student:
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
+    def to_json(self, attrs=None):
+        if type(attrs) is list:
+            dic = {}
+            for i in attrs:
+                if type(i) is not str:
+                    return self.__dict__
+                for j in self.__dict__:
+                    if i == j:
+                        dic[i] = self.__dict__[j]
+            return dic
+        return self.__dict__
 
-def append_after(filename="", search_string="", new_string=""):
-    """Inserts `new_string` into `filename` after lines containing
-         `search_string`.
-
-    Args:
-        filename (str): file to modify
-        search_string (str): string to look for in `filename`
-        new_string (str): string to insert after `search_string`
-    """
-    with open(filename, 'r+') as f:
-        lines = [line for line in f]
-        f.seek(0)
-        for idx, line in enumerate(lines):
-            if search_string in line:
-                lines.insert(idx + 1, new_string)
-        f.writelines(lines)
+    def reload_from_json(self, json):
+        return self.__dict__.update(json)
