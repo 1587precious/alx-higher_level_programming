@@ -1,23 +1,21 @@
 #!/usr/bin/python3
-"""Module implementing class with method to serialize itself"""
+"""Defines a Pascal's Triangle function."""
 
 
-class Student:
-    """Class to represent student"""
-    def __init__(self, first_name, last_name, age):
-        """Initialize new student instance with name and age"""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+def pascal_triangle(n):
+    """Represent Pascal's Triangle of size n.
 
-    def to_json(self, attrs=None):
-        """Create copy of attributes for use in json string
+    Returns a list of lists of integers representing the triangle.
+    """
+    if n <= 0:
+        return []
 
-        If `attrs` is not None, use `attrs` list to select desired attributes.
-        """
-        if attrs is None or not isinstance(attrs, (list, tuple)):
-            return self.__dict__.copy()
-        else:
-            ret = {k: v for k, v in filter(lambda x: x[0] in attrs,
-                                           self.__dict__.items())}
-            return ret
+    triangles = [[1]]
+    while len(triangles) != n:
+        tri = triangles[-1]
+        tmp = [1]
+        for i in range(len(tri) - 1):
+            tmp.append(tri[i] + tri[i + 1])
+        tmp.append(1)
+        triangles.append(tmp)
+    return triangles

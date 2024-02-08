@@ -1,13 +1,32 @@
 #!/usr/bin/python3
-"""Module to serialize class to json"""
+""" Module that defines the class Student
+"""
 
 
-def class_to_json(obj):
-    """Make serializable copy of `obj` attributes for json
+class Student:
+    """ Class to create student instances """
 
-    Args:
-        obj: object to serialize
+    def __init__(self, first_name, last_name, age):
+        """ Special method to initialize """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-    Returns: copy of `obj`s attributes as dictionary
-    """
-    return obj.__dict__.copy()
+    def to_json(self, attrs=None):
+        """ Method that returns directory description """
+        obj = self.__dict__.copy()
+        if type(attrs) is list:
+
+            for item in attrs:
+                if type(item) is not str:
+                    return obj
+
+            d_list = {}
+
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
+
+        return obj
