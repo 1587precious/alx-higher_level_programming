@@ -1,21 +1,23 @@
 #!/usr/bin/python3
-class Student:
-    def __init__(self, first_name, last_name, age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+""" Module that executes a function that appends a line """
 
-    def to_json(self, attrs=None):
-        if type(attrs) is list:
-            dic = {}
-            for i in attrs:
-                if type(i) is not str:
-                    return self.__dict__
-                for j in self.__dict__:
-                    if i == j:
-                        dic[i] = self.__dict__[j]
-            return dic
-        return self.__dict__
 
-    def reload_from_json(self, json):
-        return self.__dict__.update(json)
+def append_after(filename="", search_string="", new_string=""):
+    """ Function that appends a new line when a string is found
+
+    Args:
+        filename: filename
+        search_string: string to search
+        new_string: string to append
+
+    """
+
+    res_line = []
+    with open(filename, 'r', encoding="utf-8") as f:
+        for line in f:
+            res_line += [line]
+            if line.find(search_string) != -1:
+                res_line += [new_string]
+
+    with open(filename, 'w', encoding="utf-8") as f:
+        f.write("".join(res_line))
