@@ -1,7 +1,3 @@
 #!/bin/bash
-
-# Check if URL is provided as an argument
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <URL>"
-    exit 1
-fi
+# script that takes in a URL and displays all HTTP methods the server will accept
+curl -s -I -X OPTIONS "$1" | grep "Allow:" | cut -f2- -d" "
