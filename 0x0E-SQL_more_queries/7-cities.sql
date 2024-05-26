@@ -1,11 +1,10 @@
--- Lists all genres in the database hbtn_0d_tvshows_rate by their rating.
--- Records are ordered by descending rating.
-SELECT `name`, SUM(`rate`) AS `rating`
-  FROM `tv_genres` AS g
-       INNER JOIN `tv_show_genres` AS s
-       ON s.`genre_id` = g.`id`
-
-       INNER JOIN `tv_show_ratings` AS r
-       ON r.`show_id` = s.`show_id`
- GROUP BY `name`
- ORDER BY `rating` DESC;
+-- Creates the database hbtn_0d_usa with the table cities.
+CREATE DATABASE IF NOT EXISTS `hbtn_0d_usa`;
+CREATE TABLE IF NOT EXISTS `hbtn_0d_usa`.`cities` (
+    PRIMARY KEY(`id`),
+    `id`       INT          NOT NULL AUTO_INCREMENT,
+    `state_id` INT          NOT NULL,
+    `name`     VARCHAR(256) NOT NULL,
+    FOREIGN KEY(`state_id`)
+    REFERENCES `hbtn_0d_usa`.`states`(`id`)
+);
